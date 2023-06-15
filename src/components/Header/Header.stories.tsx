@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Input } from "./Input";
+import { Header } from "./Header";
 
 const meta = {
-  title: "Example/Input",
-  component: Input,
+  title: "Example/Header",
+  component: Header,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
@@ -15,10 +15,5 @@ export default meta;
 type Story = StoryObj;
 
 export const Default = {
-  args: {
-    placeholder: "DD/MM/AAAA",
-    onChange: () => null,
-    mask: "99/99/9999",
-    type: "text",
-  },
+  args: {},
 } satisfies Story;
