@@ -12,7 +12,7 @@ export function CardLabels(props: CardLabelsProps) {
       </div>
       <div className="flex flex-row gap-[0.43rem]">
         <label className="text-[#DDDDDD] text-[0.62rem]">Pagamentos por</label>
-        <img src="/images/iugu.png" alt="Iugu logo" />
+        <img src="/assets/iugu.png" alt="Iugu logo" />
       </div>
     </div>
   );

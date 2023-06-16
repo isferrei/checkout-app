@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
+import { Select } from "../Select/Select";
 
 type FormData = {
   [key: string]: string;
@@ -8,6 +9,10 @@ type FormData = {
 
 type FormProps = {
   onSubmit: (data: FormData) => void;
+  installments: Array<{
+    label: string | number;
+    value: string | number;
+  }>;
 };
 
 export function Form(props: FormProps) {
@@ -56,9 +61,16 @@ export function Form(props: FormProps) {
       />
       <Input
         label="Cupom"
-        mask=" "
+        mask=""
+        type="text"
         placeholder="Insira aqui"
         onChange={() => {}}
+      />
+      <Select
+        label="Número de parcelas"
+        options={props.installments}
+        placeholder={"Selecionar"}
+        onSelect={() => {}}
       />
 
       <div className="mt-[0.62rem]">
