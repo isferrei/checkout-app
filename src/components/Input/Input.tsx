@@ -8,12 +8,15 @@ export type InputProps = {
   defaultValue?: string;
   label?: string;
   value?: string;
+  name: string;
 };
 
 export function Input(props: InputProps) {
   return (
     <div>
-      <label className="text-darkGray text-[0.8rem]">{props.label || ""}</label>
+      <label className="text-darkGray text-[0.8rem]" htmlFor={props.name}>
+        {props.label || ""}
+      </label>
       <InputMask
         mask={props.mask}
         className="w-full border-b-[1px] text-[1rem] text-darkGray font-sans border-[#F4F3F6] py-[0.25rem] pl-1 placeholder:text-lightGray focus:outline-none focus:ring-2"
@@ -22,6 +25,7 @@ export function Input(props: InputProps) {
         onChange={() => props.onChange}
         defaultValue={props.defaultValue ?? ""}
         value={props.value}
+        name={props.name}
       />
     </div>
   );

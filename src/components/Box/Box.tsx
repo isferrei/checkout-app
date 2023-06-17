@@ -1,4 +1,3 @@
-/* eslint-disable react/Box-has-type */
 import classNames from "classnames";
 import type { ReactNode } from "react";
 
@@ -10,6 +9,7 @@ type BoxProps = {
   width?: number;
   bg?: string;
   children: ReactNode;
+  className?: string;
 };
 
 const Box = (props: BoxProps) => {
@@ -25,13 +25,14 @@ const Box = (props: BoxProps) => {
   return (
     <div
       {...props}
+      data-testid="box" // Add data-testid attribute
       style={{
-        height: props.height ? `${props.height}rem` : "5rem",
-        width: props.width ? `${props.width}rem` : "23.75rem",
+        height: props.height ? `${props.height}rem` : "max-content",
+        width: props.width ? `${props.width}rem` : "max-content",
         background: props.bg ? props.bg : "#fff",
       }}
       className={classNames(
-        "flex justify-center items-center w-full rounded-[15px] text-[0.94rem]",
+        `flex justify-center items-center w-full rounded-[15px] text-[0.94rem] ${props.className}`,
         handleThemes(props.variation)
       )}
     >
@@ -40,4 +41,4 @@ const Box = (props: BoxProps) => {
   );
 };
 
-export { Box };
+export { Box, type BoxProps };

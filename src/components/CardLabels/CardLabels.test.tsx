@@ -21,6 +21,6 @@ describe("CardLabels component", () => {
     // Check if Iugu logo is rendered
     const iuguLogoElement = screen.getByAltText("Iugu logo");
     expect(iuguLogoElement).toBeInTheDocument();
-    expect(iuguLogoElement).toHaveAttribute("src", "/images/iugu.png");
+    expect(iuguLogoElement).toHaveAttribute("src", "/assets/iugu.png");
   });
 });

@@ -6,9 +6,9 @@ import type {
 } from "react-select";
 import ReactSelect, { components } from "react-select";
 
-type Option = {
+export type Option = {
   value: string;
-  name: string;
+  label: string;
 };
 
 export type ISelectProps = {
@@ -69,8 +69,11 @@ const CustomSelect = (props: ISelectProps) => {
 
   return (
     <div>
-      <label className="text-darkGray text-[0.8rem]">{props.label || ""}</label>
+      <label id="select-label" className="text-darkGray text-[0.8rem]">
+        {props.label || ""}
+      </label>
       <ReactSelect
+        name="Select"
         value={selected}
         options={props.options}
         onChange={() => handleChange}
@@ -88,13 +91,12 @@ const CustomSelect = (props: ISelectProps) => {
 
 export function Select(props: ISelectProps) {
   return (
-    <div>
-      <CustomSelect
-        onSelect={props.onSelect}
-        options={props.options}
-        placeholder={props.placeholder}
-        label={props.label}
-      />
-    </div>
+    <CustomSelect
+      data-testid="select-element"
+      onSelect={props.onSelect}
+      options={props.options}
+      placeholder={props.placeholder}
+      label={props.label}
+    />
   );
 }

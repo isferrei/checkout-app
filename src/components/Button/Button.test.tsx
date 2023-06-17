@@ -15,16 +15,34 @@ jest.mock(
 
 describe("Button component", () => {
   describe("Render method", () => {
-    it("should have label", async () => {
+    it("should have label, variation, and type", async () => {
+      render(<Button variation="primary">Procurar</Button>);
+
+      const button = screen.getByText(/Procurar/);
+
+      expect(button).toHaveTextContent("Procurar");
+      expect(button).toHaveClass("bg-blue");
+    });
+
+    it("should have correct class for secondary variation", () => {
+      render(<Button variation="secondary">Secondary Button</Button>);
+
+      const button = screen.getByText(/Secondary Button/);
+
+      expect(button).toHaveTextContent("Secondary Button");
+      expect(button).toHaveClass("text-blue");
+    });
+
+    it("should have custom height and fontWeight styles", () => {
       render(
-        <Button variation="primary" type="button">
-          Procurar
+        <Button variation="primary" type="button" height={3} weight={700}>
+          Custom Button
         </Button>
       );
 
-      const text = screen.getByText(/Procurar/);
+      const button = screen.getByText(/Custom Button/);
 
-      expect(text).toHaveTextContent("Procurar");
+      expect(button).toHaveStyle({ height: "3rem", fontWeight: "700" });
     });
   });
 });

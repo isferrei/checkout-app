@@ -74,9 +74,11 @@ export default function Home() {
       </section>
 
       <section className="flex flex-col gap-[1.87rem]">
-        <div>
+        <div className="flex flex-col gap-[0.37rem]">
           <h2>Confira o seu plano:</h2>
-          <small>fulano@cicrano.com.br</small>
+          <small className="border-[1px] border-[#F4F3F6] rounded-[12px] px-[12px] py-[4px] w-max">
+            fulano@cicrano.com.br
+          </small>
         </div>
 
         {plans.map((plan) => (

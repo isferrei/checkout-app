@@ -19,8 +19,6 @@ const Button = (props: ButtonProps & Props) => {
         return "bg-blue text-white disabled:bg-gray hover:bg-lightBlue transition-all";
       case "secondary":
         return classNames("text-blue");
-      default:
-        return "";
     }
   };
 

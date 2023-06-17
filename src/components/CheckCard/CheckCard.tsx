@@ -29,26 +29,39 @@ export function CheckCard(props: CheckCardProps) {
   };
 
   const formatNumber = (number: number) => {
-    return number.toLocaleString("pt-BR", { minimumFractionDigits: 2 });
+    return number.toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
   };
 
   return (
     <label
       htmlFor={props.id}
       className="border-[1px] flex justify-between flex-row font-sans items-center w-[20rem] border-blue rounded-[0.93rem] p-[1.25rem] cursor-pointer focus:outline-none focus:ring-2 hover:bg-[#F4F3F6] transition-all"
+      data-testid="checkcard"
     >
       <div className="flex gap-[0.75rem] flex-row justify-center items-center">
         <section className="text-blue font-normal">
-          <h2 className="font-bold text-[0.87rem]">
+          <h2
+            className="font-bold text-[0.87rem]"
+            data-testid="checkcard-title-description"
+          >
             {props.title} | {props.description}
           </h2>
 
-          <p className="text-[0.75rem]">
+          <p
+            className="text-[0.75rem]"
+            data-testid="checkcard-full-price-discount"
+          >
             De R$ {formatNumber(props.fullPrice)} | Por R${" "}
             {formatNumber(props.fullPrice - props.discountAmmount)}
           </p>
 
-          <p className="text-[0.65rem] text-orange">
+          <p
+            className="text-[0.65rem] text-orange"
+            data-testid="checkcard-installments"
+          >
             {props.installments}x de R${" "}
             {formatNumber(props.fullPrice / props.installments)}/
             {props.periodLabel}
