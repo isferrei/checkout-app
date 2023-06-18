@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component Render method should match the snapshot 1`] = `
+<div>
+  <header
+    class="flex flex-row w-full pt-[2.4rem] px-[4.2rem] items-center"
+  >
+    <a
+      href="/"
+    >
+      <img
+        alt="back arrow"
+        src="/assets/arrow.svg"
+      />
+    </a>
+    <nav
+      class="mx-auto"
+    >
+      <img
+        alt="whitebook"
+        src="/assets/logo.svg"
+      />
+    </nav>
+  </header>
+</div>
+`;

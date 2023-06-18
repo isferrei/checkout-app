@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckCard renders CheckCard component with correct props 1`] = `
+<label
+  class="border-[1px] flex justify-between flex-row font-sans items-center w-[20rem] border-blue rounded-[0.93rem] p-[1.25rem] cursor-pointer focus:outline-none focus:ring-2 hover:bg-[#F4F3F6] transition-all"
+  data-testid="checkcard"
+  for="card1"
+>
+  <div
+    class="flex gap-[0.75rem] flex-row justify-center items-center"
+  >
+    <section
+      class="text-blue font-normal"
+    >
+      <h2
+        class="font-bold text-[0.87rem]"
+        data-testid="checkcard-title-description"
+      >
+        Premium Anual
+         | 
+        Parcelado
+      </h2>
+      <p
+        class="text-[0.75rem]"
+        data-testid="checkcard-full-price-discount"
+      >
+        De R$ 
+        100,00
+         | Por R$
+         
+        100,00
+      </p>
+      <p
+        class="text-[0.65rem] text-orange"
+        data-testid="checkcard-installments"
+      >
+        3
+        x de R$
+         
+        33,33
+        /
+        month
+      </p>
+    </section>
+    <section
+      class="flex justify-center items-center h-[1rem] w-[2.5rem] px-[0.3rem] py-[0.25rem] text-white text-[0.63rem] rounded-[0.56rem] bg-orange"
+    >
+      -10%
+    </section>
+  </div>
+  <label>
+    <input
+      class="hidden"
+      id="card1"
+      name="plan_card"
+      type="radio"
+      value="card1"
+    />
+    <span
+      class="w-[16px] h-[16px] rounded-full border-2 flex items-center justify-center transition-all"
+      style="border-color: #c9c5d4;"
+    >
+      <span
+        class="w-[8px] h-[8px] rounded-full bg-blue"
+      />
+    </span>
+  </label>
+</label>
+`;

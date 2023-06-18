@@ -11,16 +11,16 @@ describe("CardLabels component", () => {
 
     render(<CardLabels cards={cards} />);
 
-    // Check if card images are rendered with correct alt text
     cards.forEach((card) => {
       const imgElement = screen.getByAltText(card.alt);
       expect(imgElement).toBeInTheDocument();
       expect(imgElement).toHaveAttribute("src", card.img);
     });
 
-    // Check if Iugu logo is rendered
     const iuguLogoElement = screen.getByAltText("Iugu logo");
     expect(iuguLogoElement).toBeInTheDocument();
     expect(iuguLogoElement).toHaveAttribute("src", "/assets/iugu.png");
+
+    expect(screen as any).toMatchSnapshot();
   });
 });

@@ -9,11 +9,11 @@ jest.mock("next/router", () => ({
 
 describe("Header component", () => {
   describe("Render method", () => {
-    it("should have a href", async () => {
+    it("should match the snapshot", () => {
       render(<Header href="/" />);
 
-      const headerElement = screen.getByRole("link");
-      expect(headerElement).toBeInTheDocument();
+      const { container } = render(<Header href="/" />);
+      expect(container).toMatchSnapshot();
     });
   });
 });

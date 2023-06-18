@@ -7,34 +7,25 @@ describe("Box component", () => {
   };
 
   test("renders with default props", () => {
-    const { getByTestId } = renderBox({
+    const { container } = renderBox({
       variation: "default",
       children: "Content",
     });
 
-    const boxElement = getByTestId("box");
-    expect(boxElement).toBeInTheDocument();
-    expect(boxElement).toHaveClass(
-      "flex justify-center items-center w-full rounded-[15px]"
-    );
-    expect(boxElement).not.toHaveClass(
-      "drop-shadow-[0_4px_20px_rgba(0,0,0,0.05)]"
-    );
-    expect(boxElement).toHaveTextContent("Content");
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   test("renders with shadow variation", () => {
-    const { getByTestId } = renderBox({
+    const { container } = renderBox({
       variation: "shadow",
       children: "Content",
     });
 
-    const boxElement = getByTestId("box");
-    expect(boxElement).toHaveClass("drop-shadow-[0_4px_20px_rgba(0,0,0,0.05)]");
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   test("renders with custom styles", () => {
-    const { getByTestId } = renderBox({
+    const { container } = renderBox({
       variation: "default",
       children: "Content",
       height: 10,
@@ -43,10 +34,6 @@ describe("Box component", () => {
       className: "custom-class",
     });
 
-    const boxElement = getByTestId("box");
-    expect(boxElement).toHaveStyle("height: 10rem");
-    expect(boxElement).toHaveStyle("width: 20rem");
-    expect(boxElement).toHaveStyle("background: #ccc");
-    expect(boxElement).toHaveClass("custom-class");
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

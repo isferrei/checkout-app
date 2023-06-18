@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form calls onSubmit handler with form data on submission 1`] = `
+<input
+  class="w-full border-b-[1px] text-[1rem] text-darkGray font-sans border-[#F4F3F6] py-[0.25rem] pl-1 placeholder:text-lightGray focus:outline-none focus:ring-2"
+  id="creditCardNumber"
+  name="creditCardNumber"
+  placeholder="0000 0000 0000 0000"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Form calls onSubmit handler with form data on submission 2`] = `
+<input
+  class="w-full border-b-[1px] text-[1rem] text-darkGray font-sans border-[#F4F3F6] py-[0.25rem] pl-1 placeholder:text-lightGray focus:outline-none focus:ring-2"
+  id="creditCardExpirationDate"
+  name="creditCardExpirationDate"
+  placeholder="MM/AA"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Form calls onSubmit handler with form data on submission 3`] = `
+<input
+  class="w-full border-b-[1px] text-[1rem] text-darkGray font-sans border-[#F4F3F6] py-[0.25rem] pl-1 placeholder:text-lightGray focus:outline-none focus:ring-2"
+  id="creditCardCVV"
+  name="creditCardCVV"
+  placeholder="000"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Form calls onSubmit handler with form data on submission 4`] = `
+<input
+  class="w-full border-b-[1px] text-[1rem] text-darkGray font-sans border-[#F4F3F6] py-[0.25rem] pl-1 placeholder:text-lightGray focus:outline-none focus:ring-2"
+  id="creditCardHolder"
+  name="creditCardHolder"
+  placeholder="Seu nome"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Form calls onSubmit handler with form data on submission 5`] = `
+<input
+  class="w-full border-b-[1px] text-[1rem] text-darkGray font-sans border-[#F4F3F6] py-[0.25rem] pl-1 placeholder:text-lightGray focus:outline-none focus:ring-2"
+  id="creditCardCPF"
+  name="creditCardCPF"
+  placeholder="000.000.000-00"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Form calls onSubmit handler with form data on submission 6`] = `
+<input
+  class="w-full border-b-[1px] text-[1rem] text-darkGray font-sans border-[#F4F3F6] py-[0.25rem] pl-1 placeholder:text-lightGray focus:outline-none focus:ring-2"
+  id="couponCode"
+  name="couponCode"
+  placeholder="Insira aqui"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Form calls onSubmit handler with form data on submission 7`] = `
+<button
+  class="flex justify-center items-center w-full rounded-[25px] text-[0.94rem] bg-blue text-white disabled:bg-gray hover:bg-lightBlue transition-all"
+  style="height: 50px; font-weight: 400;"
+  type="submit"
+>
+  Finalizar pagamento
+</button>
+`;

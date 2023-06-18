@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box component renders with custom styles 1`] = `
+<div
+  bg="#ccc"
+  class="flex justify-center items-center w-full rounded-[15px] text-[0.94rem] custom-class"
+  data-testid="box"
+  height="10"
+  style="height: 10rem; width: 20rem; background: rgb(204, 204, 204);"
+  variation="default"
+  width="20"
+>
+  Content
+</div>
+`;
+
+exports[`Box component renders with default props 1`] = `
+<div
+  class="flex justify-center items-center w-full rounded-[15px] text-[0.94rem] undefined"
+  data-testid="box"
+  style="background: rgb(255, 255, 255);"
+  variation="default"
+>
+  Content
+</div>
+`;
+
+exports[`Box component renders with shadow variation 1`] = `
+<div
+  class="flex justify-center items-center w-full rounded-[15px] text-[0.94rem] undefined drop-shadow-[0_4px_20px_rgba(0,0,0,0.05)]"
+  data-testid="box"
+  style="background: rgb(255, 255, 255);"
+  variation="shadow"
+>
+  Content
+</div>
+`;

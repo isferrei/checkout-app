@@ -8,6 +8,7 @@ type ButtonProps = {
   variation: ButtonTheme;
   height?: number;
   weight?: number;
+  type?: string;
 };
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -24,6 +25,7 @@ const Button = (props: ButtonProps & Props) => {
 
   return (
     <button
+      type={props.type ?? "button"}
       style={{
         height: props.height ? `${props.height}rem` : "50px",
         fontWeight: props.weight ? "700" : "400",

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input component Render method should match the snapshot 1`] = `
+<div>
+  <div>
+    <label
+      class="text-darkGray text-[0.8rem]"
+      for=""
+    />
+    <input
+      class="w-full border-b-[1px] text-[1rem] text-darkGray font-sans border-[#F4F3F6] py-[0.25rem] pl-1 placeholder:text-lightGray focus:outline-none focus:ring-2"
+      id=""
+      name=""
+      placeholder="DD/MM/AAAA"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;

@@ -1,41 +1,67 @@
 import { Inter } from "next/font/google";
-import {
-  CheckCard,
-  CheckCardProps,
-} from "../../components/CheckCard/CheckCard";
 
 import { useEffect, useState } from "react";
 import { Box } from "../../components/Box/Box";
 import { Button } from "../../components/Button/Button";
+import { Loader } from "@/components/Loader/Loader";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const cards = [
-  { img: "/assets/mastercard.png", alt: "card mastercard" },
-  { img: "/assets/dinnersclub.png", alt: "card dinnersclub" },
-  { img: "/assets/americanexpress.png", alt: "card americanexpress" },
-  { img: "/assets/visa.png", alt: "card visa" },
-  { img: "/assets/elo.png", alt: "card elo" },
-];
+type UserProps = {
+  couponCode: string | null;
+  creditCardCPF: string;
+  creditCardCVV: string;
+  creditCardExpirationDate: string;
+  creditCardHolder: string;
+  creditCardNumber: string;
+  gateway: string;
+  id: number;
+  installments: number;
+  offerId: number;
+  userId: number;
+};
 
 export default function Success() {
-  const [plans, setPlans] = useState<CheckCardProps[]>([]);
+  const [user, setUser] = useState<UserProps>();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const apiUrl = process.env.NEXT_PUBLIC_API_ENDPOINT_URL || "";
+  const apiUrl = process.env.NEXT_PUBLIC_API_SUBSCRIPTION_URL || "";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         const jsonData = await response.json();
-        setPlans(jsonData);
+
+        setUser(jsonData);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError("Failed to fetch data. Please try again later.");
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <h2>{error}</h2>
+      </div>
+    );
+  }
 
   return (
     <main
@@ -47,11 +73,14 @@ export default function Success() {
           width="60px"
           alt="Confirmation mark"
         />
+
         <h2 className="mt-[0.43rem]">Parabéns!</h2>
+
         <p className=" text-lightGray w-[12.5rem] text-center leading-[20px]">
           Sua assinatura foi realizada com sucesso.
         </p>
       </section>
+
       <Box variation="shadow" className="flex flex-col p-[0.938rem]">
         <Box
           variation="default"
@@ -75,7 +104,12 @@ export default function Success() {
 
           <div className="flex justify-between">
             <p className="text-lightGray">CPF</p>
-            <p>000.000.000-00</p>
+            <p>
+              {user?.creditCardCPF.replace(
+                /^(\d{3})(\d{3})(\d{3})(\d{2})$/,
+                "$1.$2.$3-$4"
+              ) ?? ""}
+            </p>
           </div>
         </section>
       </Box>
@@ -84,6 +118,7 @@ export default function Success() {
         <Button variation="secondary" weight={700}>
           <small>Gerenciar assinatura</small>
         </Button>
+
         <Button variation="primary" weight={700}>
           <small>IR PARA A HOME</small>
         </Button>

@@ -7,8 +7,8 @@ import type {
 import ReactSelect, { components } from "react-select";
 
 export type Option = {
-  value: string;
-  label: string;
+  value: string | number;
+  label: string | number;
 };
 
 export type ISelectProps = {
@@ -18,7 +18,10 @@ export type ISelectProps = {
     value: string | number;
   }>;
   placeholder: string;
-  onSelect: (selected: Option | Option[]) => void;
+  onSelect: (selected: {
+    label: string | number;
+    value: string | number;
+  }) => void;
 };
 
 const indicatorSeparatorStyle = {
@@ -40,7 +43,7 @@ const CustomSelect = (props: ISelectProps) => {
   };
 
   const customStyles: StylesConfig = {
-    control: (styles, state) => ({
+    control: (styles) => ({
       ...styles,
       borderRadius: 0,
       border: "none",
@@ -69,14 +72,19 @@ const CustomSelect = (props: ISelectProps) => {
 
   return (
     <div>
-      <label id="select-label" className="text-darkGray text-[0.8rem]">
+      <label
+        id="select-label"
+        className="text-darkGray text-[0.8rem]"
+        htmlFor="select"
+      >
         {props.label || ""}
       </label>
       <ReactSelect
+        id="select"
         name="Select"
         value={selected}
         options={props.options}
-        onChange={() => handleChange}
+        onChange={handleChange}
         placeholder={props.placeholder}
         components={{ IndicatorSeparator }}
         theme={(theme) => ({

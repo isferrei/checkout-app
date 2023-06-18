@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component Render method should have correct class for secondary variation 1`] = `
+<button
+  class="flex justify-center items-center w-full rounded-[25px] text-[0.94rem] text-blue"
+  style="height: 50px; font-weight: 400;"
+  type="button"
+>
+  Secondary Button
+</button>
+`;
+
+exports[`Button component Render method should have custom height and fontWeight styles 1`] = `
+<button
+  class="flex justify-center items-center w-full rounded-[25px] text-[0.94rem] bg-blue text-white disabled:bg-gray hover:bg-lightBlue transition-all"
+  style="height: 3rem; font-weight: 700;"
+  type="button"
+>
+  Custom Button
+</button>
+`;
+
+exports[`Button component Render method should have label, variation, and type 1`] = `
+<button
+  class="flex justify-center items-center w-full rounded-[25px] text-[0.94rem] bg-blue text-white disabled:bg-gray hover:bg-lightBlue transition-all"
+  style="height: 50px; font-weight: 400;"
+  type="button"
+>
+  Procurar
+</button>
+`;

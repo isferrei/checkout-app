@@ -1,9 +1,11 @@
 import { Inter } from "next/font/google";
 import { CheckCard, CheckCardProps } from "../components/CheckCard/CheckCard";
 import { Form } from "../components/Form/Form";
-import { CardLabels } from "@/components/CardLabels/CardLabels";
+import { CardLabels } from "../components/CardLabels/CardLabels";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { Loader } from "../components/Loader/Loader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,8 +23,11 @@ export default function Home() {
   const [installments, setInstallments] = useState<
     Array<{ value: string | number; label: string | number }>
   >([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+  const router = useRouter();
 
-  const apiUrl = process.env.NEXT_PUBLIC_API_ENDPOINT_URL || "";
+  const apiUrl = process.env.NEXT_PUBLIC_API_OFFER_URL || "";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,8 +35,10 @@ export default function Home() {
         const response = await fetch(apiUrl);
         const jsonData = await response.json();
         setPlans(jsonData);
+        setIsLoading(false);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        setError("Failed to fetch data. Please try again later.");
+        setIsLoading(false);
       }
     };
 
@@ -55,26 +62,56 @@ export default function Home() {
   };
 
   const handleSubmit = (data: FormData) => {
-    console.log("Form data:", data);
+    fetch(
+      "https://private-0ced4-pebmeddesafiofrontend.apiary-mock.com/subscription",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to submit form");
+        }
+        router.push("/success");
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+      });
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <h2>{error}</h2>
+      </div>
+    );
+  }
 
   return (
     <main
-      className={`flex flex-row justify-center p-24 gap-[12.5rem] ${inter.className}`}
+      className={`flex sm:flex-row flex-col-reverse justify-center sm:items-start items-center sm:p-24 p-5 sm:gap-[12.5rem] gap-[2rem] ${inter.className}`}
     >
-      <section className="flex flex-col gap-[1.87rem]">
-        <div>
+      <section className="flex flex-col gap-[1.87rem] sm:p-0 p-10">
+        <div className="sm:text-start text-center">
           <h2>Estamos quase lá!</h2>
           <p>Insira seus dados de pagamento abaixo:</p>
         </div>
 
         <CardLabels cards={cards} />
 
-        <Form onSubmit={() => {}} installments={installments} />
+        <Form onSubmit={handleSubmit} installments={installments} />
       </section>
 
       <section className="flex flex-col gap-[1.87rem]">
-        <div className="flex flex-col gap-[0.37rem]">
+        <div className="flex flex-col gap-[0.37rem] sm:items-start items-center">
           <h2>Confira o seu plano:</h2>
           <small className="border-[1px] border-[#F4F3F6] rounded-[12px] px-[12px] py-[4px] w-max">
             fulano@cicrano.com.br

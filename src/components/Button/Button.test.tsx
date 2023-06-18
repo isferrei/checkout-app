@@ -3,12 +3,10 @@ import type { ReactNode } from "react";
 
 import { Button } from "./Button";
 
-// Mock `next/head`: https://bradgarropy.com/blog/mocking-nextjs
 jest.mock(
   "next/head",
   () =>
     function Head(props: { children: ReactNode }) {
-      // eslint-disable-next-line testing-library/no-node-access
       return props.children;
     }
 );
@@ -22,6 +20,8 @@ describe("Button component", () => {
 
       expect(button).toHaveTextContent("Procurar");
       expect(button).toHaveClass("bg-blue");
+
+      expect(button).toMatchSnapshot();
     });
 
     it("should have correct class for secondary variation", () => {
@@ -31,6 +31,8 @@ describe("Button component", () => {
 
       expect(button).toHaveTextContent("Secondary Button");
       expect(button).toHaveClass("text-blue");
+
+      expect(button).toMatchSnapshot();
     });
 
     it("should have custom height and fontWeight styles", () => {
@@ -43,6 +45,8 @@ describe("Button component", () => {
       const button = screen.getByText(/Custom Button/);
 
       expect(button).toHaveStyle({ height: "3rem", fontWeight: "700" });
+
+      expect(button).toMatchSnapshot();
     });
   });
 });

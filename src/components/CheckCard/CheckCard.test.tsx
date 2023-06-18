@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { CheckCard } from "./CheckCard";
 
 describe("CheckCard", () => {
@@ -17,7 +17,7 @@ describe("CheckCard", () => {
   };
 
   test("renders CheckCard component with correct props", () => {
-    render(<CheckCard discountAmmount={0} {...props} />);
+    const { container } = render(<CheckCard discountAmmount={0} {...props} />);
 
     expect(screen.getByTestId("checkcard-title-description")).toHaveTextContent(
       "Premium Anual | Parcelado"
@@ -33,11 +33,11 @@ describe("CheckCard", () => {
 
     expect(screen.getByText("-10%")).toBeInTheDocument();
 
-    const radioInput = screen.getByTestId("checkcard");
-
-    fireEvent.click(radioInput);
+    fireEvent.click(screen.getByTestId("checkcard"));
 
     expect(props.onChange).toHaveBeenCalledTimes(1);
     expect(props.onChange).toHaveBeenCalledWith("card1");
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
