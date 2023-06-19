@@ -8,7 +8,7 @@ Check out the live demo of the application: <a href="https://checkout-app-amber.
 
 Visit our Storybook Design System to explore and interact with our components.
 
-[Storybook Design System](https://isferrei.github.io/checkout-app/storybook-static/)
+[Storybook Design System](https://isferrei.github.io/checkout-app)
 
 ## Features
 - Enter payment details such as card number, expiration date, and CVV.
