@@ -1,38 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Checkout App
+The Checkout App is a web application that allows users to enter payment information and select a subscription plan. It provides a user-friendly interface for submitting the payment form and viewing available plans.
+
+## Demo
+Check out the live demo of the application: <a href="https://checkout-app-amber.vercel.app/">Checkout App Demo</a>
+
+## Features
+- Enter payment details such as card number, expiration date, and CVV.
+- Select a subscription plan from a list of available options.
+- Display card logos for popular payment methods.
+- Calculate and display discount information for each plan.
+- Dynamically update available installments based on the selected plan.
+- Submit the payment form and handle form validation.
+- Show loading state while fetching data from the API.
+- Display error messages if data fetching or form submission fails.
+- Provide a success page after successful form submission.
+
+## Technologies Used:
+- Next.js: A React framework for building server-side rendered and static websites.
+- React: A JavaScript library for building user interfaces.
+- TypeScript: A statically typed superset of JavaScript.
+- Tailwind CSS: A utility-first CSS framework for building responsive and customizable UI.
+- Jest: A JavaScript testing framework.
+- Vercel: A cloud platform for deploying and hosting Next.js applications.
 
 ## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+1. Clone the repository:
+```
+git clone <repository-url>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install the dependencies:
+```
+cd checkout-app
+npm install
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+3. Set up the environment variables:
+Copy the .env.example file to .env and update the necessary environment variables, such as the API URL.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+4. Run the application:
+```
+npm run dev
+```
+The application will be accessible at http://localhost:3000.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Testing
+To run the tests, use the following command:
+```
+npm test
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Deployment
+The application is deployed using Vercel. Any changes pushed to the main branch will automatically trigger a new deployment to the production environment.
 
-## Learn More
+## Contributing
+Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+This project is licensed under the MIT License.
