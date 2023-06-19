@@ -2,7 +2,8 @@
 The Checkout App is a web application that allows users to enter payment information and select a subscription plan. It provides a user-friendly interface for submitting the payment form and viewing available plans.
 
 ## Demo
-Check out the live demo of the application 
+Check out the live demo of the application.
+
 [Checkout App Demo](https://checkout-app-amber.vercel.app/)
 
 ## Storybook Design System
