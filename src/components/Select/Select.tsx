@@ -1,9 +1,11 @@
 import { useState } from "react";
 import type {
+  ActionMeta,
   GroupBase,
   IndicatorSeparatorProps,
   StylesConfig,
 } from "react-select";
+
 import ReactSelect, { components } from "react-select";
 
 export type Option = {
@@ -37,9 +39,16 @@ const IndicatorSeparator = ({
 const CustomSelect = (props: ISelectProps) => {
   const [selected, setSelected] = useState<Option>();
 
-  const handleChange = (option: Option) => {
-    setSelected(option);
-    props.onSelect(option);
+  const handleChange = (
+    newValue: Option | null,
+    actionMeta: ActionMeta<Option>
+  ) => {
+    if (newValue === null || newValue === undefined) {
+      return;
+    } else {
+      setSelected(newValue);
+      props.onSelect(newValue);
+    }
   };
 
   const customStyles: StylesConfig = {
@@ -84,7 +93,8 @@ const CustomSelect = (props: ISelectProps) => {
         name="Select"
         value={selected}
         options={props.options}
-        onChange={handleChange}
+        // @ts-ignore
+        onChange={(newValue, actionMeta) => setSelected(newValue)}
         placeholder={props.placeholder}
         components={{ IndicatorSeparator }}
         theme={(theme) => ({

@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import { CheckCard, CheckCardProps } from "../components/CheckCard/CheckCard";
-import { Form } from "../components/Form/Form";
+import { Form, FormData } from "../components/Form/Form";
 import { CardLabels } from "../components/CardLabels/CardLabels";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -61,8 +61,8 @@ export default function Home() {
     setSelectedOption(optionValue);
   };
 
-  const handleSubmit = (data: FormData) => {
-    fetch(
+  const handleSubmit = async (data: FormData) => {
+    await fetch(
       "https://private-0ced4-pebmeddesafiofrontend.apiary-mock.com/subscription",
       {
         method: "POST",

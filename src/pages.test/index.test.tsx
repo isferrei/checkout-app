@@ -1,9 +1,9 @@
 import { render, waitFor } from "@testing-library/react";
 import { getPage } from "next-page-tester";
 import Home from "../pages/index";
-import "@testing-library/jest-dom";
 import { TextEncoder } from "util";
 import fetchMock from "jest-fetch-mock";
+import "@testing-library/jest-dom";
 
 beforeEach(() => {
   fetchMock.resetMocks();
@@ -20,6 +20,7 @@ describe("Success component", () => {
     });
 
     const mockFetch = jest.spyOn(global, "fetch");
+    //@ts-ignore
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce({ data: "Mocked Data" }),

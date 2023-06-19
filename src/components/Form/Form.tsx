@@ -3,7 +3,7 @@ import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
 import { Select } from "../Select/Select";
 
-type FormData = {
+export type FormData = {
   [key: string]: string;
 };
 
