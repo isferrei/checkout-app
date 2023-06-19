@@ -11,7 +11,7 @@
         "build-storybook": "build-storybook",
         "test": "jest",
         "storybook:build": "storybook build -s public",
-        "storybook:deploy": "yarn build-storybook && gh-pages -d storybook-static"
+        "storybook:deploy": "yarn storybook:build && gh-pages -d storybook-static"
     },
     "dependencies": {
         "@storybook/react": "^7.0.22",
