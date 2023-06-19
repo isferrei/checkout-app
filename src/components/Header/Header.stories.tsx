@@ -15,5 +15,5 @@ export default meta;
 type Story = StoryObj;
 
 export const Default = {
-  args: {},
+  args: { href: "/" },
 } satisfies Story;

@@ -28,7 +28,7 @@ describe("Form", () => {
       userEvent.type(screen.getByLabelText(/CPF/i), "123.456.789-00");
       userEvent.type(screen.getByLabelText(/Cupom/i), "ABC123");
 
-      userEvent.click(screen.getByText(/Finalizar pagamento/i));
+      fireEvent.submit(screen.getByTestId("form"));
     });
 
     expect(mockOnSubmit).toHaveBeenCalledTimes(1);

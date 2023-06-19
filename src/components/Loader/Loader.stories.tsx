@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { CardLabels } from "./CardLabels";
+import { Loader } from "./Loader";
 
 const meta = {
-  title: "Example/CardLabels",
-  component: CardLabels,
+  title: "Example/Loader",
+  component: Loader,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
@@ -15,10 +15,5 @@ export default meta;
 type Story = StoryObj;
 
 export const Default = {
-  args: {
-    cards: [
-      { img: "/assets/elo.png", alt: "card elo" },
-      { img: "/assets/visa.png", alt: "card visa" },
-    ],
-  },
+  args: {},
 } satisfies Story;

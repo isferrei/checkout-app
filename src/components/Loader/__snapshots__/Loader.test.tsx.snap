@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader component should render correctly 1`] = `
+<div>
+  <div
+    class="flex justify-center items-center h-screen"
+  >
+    <div
+      class="mx-auto inline-block h-8 w-8 animate-spin rounded-full border-4 border-blue border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+      role="status"
+    />
+  </div>
+</div>
+`;
