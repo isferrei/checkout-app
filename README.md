@@ -6,12 +6,6 @@ Check out the live demo of the application.
 
 [Checkout App Demo](https://checkout-app-amber.vercel.app/)
 
-## Storybook Design System
-
-Visit our Storybook Design System to explore and interact with our components.
-
-[Storybook Design System](https://isferrei.github.io/checkout-app)
-
 ## Features
 - Enter payment details such as card number, expiration date, and CVV.
 - Select a subscription plan from a list of available options.
@@ -51,6 +45,17 @@ Copy the .env.example file to .env and update the necessary environment variable
 npm run dev
 ```
 The application will be accessible at http://localhost:3000.
+
+## Storybook Design System
+
+Visit our Storybook Design System to explore and interact with our components.
+
+[Storybook Design System](https://isferrei.github.io/checkout-app)
+
+To run storybook locally, use the following command:
+```
+yarn run storybook
+```
 
 ## Testing
 To run the tests, use the following command:
