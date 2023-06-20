@@ -34,7 +34,7 @@ git clone <repository-url>
 2. Install the dependencies:
 ```
 cd checkout-app
-npm install
+yarn install
 ```
 
 3. Set up the environment variables:
@@ -42,7 +42,7 @@ Copy the .env.example file to .env and update the necessary environment variable
 
 4. Run the application:
 ```
-npm run dev
+yarn next
 ```
 The application will be accessible at http://localhost:3000.
 
@@ -60,7 +60,7 @@ yarn run storybook
 ## Testing
 To run the tests, use the following command:
 ```
-npm test
+yarn test
 ```
 
 ## Deployment
