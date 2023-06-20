@@ -66,6 +66,9 @@ yarn test
 ## Deployment
 The application is deployed using Vercel. Any changes pushed to the main branch will automatically trigger a new deployment to the production environment.
 
+## Extra Documentation
+[Checkout App documentation](https://inky-parrotfish-3b6.notion.site/Checkout-App-Documentation-255951598638442b84645d704b9c52b2)
+
 ## Contributing
 Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
