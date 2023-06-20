@@ -40,18 +40,6 @@ const IndicatorSeparator = ({
 const CustomSelect = (props: ISelectProps) => {
     const [selected, setSelected] = useState<Option>()
 
-    const handleChange = (
-        newValue: Option | null,
-        actionMeta: ActionMeta<Option>
-    ) => {
-        if (newValue === null || newValue === undefined) {
-            return
-        } else {
-            setSelected(newValue)
-            props.onSelect(newValue)
-        }
-    }
-
     const customStyles: StylesConfig = {
         control: (styles) => ({
             ...styles,

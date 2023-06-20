@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { Box } from "../../components/Box/Box"
 import { Button } from "../../components/Button/Button"
 import { Loader } from "@/components/Loader/Loader"
+import { useRouter } from "next/router"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -26,6 +27,7 @@ export default function Success() {
     const [user, setUser] = useState<UserProps>()
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState("")
+    const router = useRouter()
 
     const apiUrl = process.env.NEXT_PUBLIC_API_SUBSCRIPTION_URL || ""
 
@@ -51,6 +53,10 @@ export default function Success() {
 
         fetchData()
     }, [])
+
+    const handleGoToHome = () => {
+        router.push("/")
+    }
 
     if (isLoading) {
         return <Loader />
@@ -122,7 +128,11 @@ export default function Success() {
                     <small>Gerenciar assinatura</small>
                 </Button>
 
-                <Button variation="primary" weight={700}>
+                <Button
+                    variation="primary"
+                    weight={700}
+                    onClick={handleGoToHome}
+                >
                     <small>IR PARA A HOME</small>
                 </Button>
             </section>

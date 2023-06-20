@@ -10,6 +10,7 @@ type ButtonProps = {
     height?: number
     weight?: number
     type?: string
+    onClick?: () => void
 }
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement>
@@ -35,6 +36,7 @@ const Button = (props: ButtonProps & Props) => {
                 "flex justify-center items-center w-full rounded-[25px] text-[0.94rem]",
                 handleThemes(props.variation)
             )}
+            onClick={props.onClick}
         >
             {props.children}
         </button>
